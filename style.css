@@ -158,6 +158,25 @@ main {
   display: flex;
   justify-content: center;
 }
+.alert {
+  margin-bottom: 1rem;
+  height: 1.25rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 0.7rem;
+  border-radius: 0.25rem;
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+}
+.alert-danger {
+  color: #721c24;
+  background: #f8d7da;
+}
+.alert-success {
+  color: #155724;
+  background: #d4edda;
+}
 .grocery-form h3 {
   color: var(--clr-primary-1);
   margin-bottom: 1.5rem;
@@ -202,7 +221,7 @@ main {
 .grocery-container {
   margin-top: 2rem;
   transition: var(--transition);
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 .show-container {
   visibility: visible;
@@ -251,7 +270,7 @@ main {
 .delete-btn:hover {
   color: var(--clr-red-dark);
 }
-clear-btn {
+.clear-btn {
   text-transform: capitalize;
   width: 10rem;
   height: 1.5rem;
@@ -262,4 +281,11 @@ clear-btn {
   color: var(--clr-red-light);
   margin: 0 auto;
   font-size: 0.85rem;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1.25rem;
+}
+.clear-btn:hover {
+  color: var(--clr-red-dark);
 }
