@@ -56,29 +56,15 @@ function addItem(e) {
     container.classList.add("show-container");
     // add to local storage
     addToLocalStorage(id, value);
-    //edit function
-    function editItem() {
-      console.log("edit Item");
-    }
-    //delete function
-    function deleteItem(e) {
-      //   e.preventDefault();
-      const element = e.currentTarget.parentElement.parentElement;
-      const id = element.dataset.id;
-      list.removeChild(element);
-      if (list.children.length === 0) {
-        container.classList.remove("show-container");
-      }
-      displayAlert("item removed", "danger");
-      setBackToDefault();
-      // removing from local storage
-      // removeFromLocalStorage(id);
-    }
 
     //set back to default
     setBackToDefault();
   } else if (value && editFlag) {
-    console.log("editing");
+    editElement.innerHTML = value;
+    displayAlert("value changed", "success");
+    //edit local storage
+    editLocalSotrage(editId, value);
+    setBackToDefault();
   } else {
     displayAlert("please enter value", "danger");
   }
@@ -107,6 +93,31 @@ function clearItems() {
   //   localStorage.removeItem('list');
 }
 
+//delete function
+function deleteItem(e) {
+  //   e.preventDefault();
+  const element = e.currentTarget.parentElement.parentElement;
+  const id = element.dataset.id;
+  list.removeChild(element);
+  if (list.children.length === 0) {
+    container.classList.remove("show-container");
+  }
+  displayAlert("item removed", "danger");
+  setBackToDefault();
+  // removing from local storage
+  // removeFromLocalStorage(id);
+}
+//edit function
+function editItem(e) {
+  const element = e.currentTarget.parentElement.parentElement;
+  // set edit item
+  editElement = e.currentTarget.parentElement.previousElementSibling;
+  // set form value
+  grocery.value = editElement.innerHTML;
+  editFlag = true;
+  editId = element.dataset.id;
+  submitBtn.textContent = "edit";
+}
 // set bck to default
 function setBackToDefault() {
   grocery.value = "";
@@ -119,3 +130,4 @@ function addToLocalStorage(id, value) {
   //   console.log("added");
 }
 function removeFromLocalStorage(id) {}
+function editLocalSotrage(id, vlaue) {}
