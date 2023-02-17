@@ -69,7 +69,10 @@ function displayAlert(text, action) {
 
 // set bck to default
 function setBackToDefault() {
-  console.log("default");
+  grocery.value = "";
+  editFlag = false;
+  editId = "";
+  submitBtn.textContent = "submit";
 }
 // localstorage
 function addToLocalStorage(id, value) {
