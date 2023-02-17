@@ -127,7 +127,27 @@ function setBackToDefault() {
 }
 // localstorage
 function addToLocalStorage(id, value) {
+  const grocery = { id, value };
+  let items = localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+  console.log(items);
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
+
+  //   console.log(grocery);
+
   //   console.log("added");
 }
 function removeFromLocalStorage(id) {}
 function editLocalSotrage(id, vlaue) {}
+//localStorage API
+//getItem
+//setItem
+//removeItem
+//save as string
+
+// localStorage.setItem("orange", JSON.stringify(["item", "item1"]));
+// const oranges = JSON.parse(localStorage.getItem("orange"));
+// console.log(oranges);
+// localStorage.removeItem("orange");
