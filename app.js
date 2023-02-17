@@ -26,6 +26,17 @@ function addItem(e) {
   } else if (value && editFlag) {
     console.log("editing");
   } else {
-    console.log("empty value");
+    displayAlert("please enter value", "danger");
   }
+}
+// display alert
+function displayAlert(text, action) {
+  alert.textContent = text;
+  alert.classList.add(`alert-${action}`);
+
+  //remove alert
+  setTimeout(function () {
+    alert.textContent = "";
+    alert.classList.remove(`alert-${action}`);
+  }, 1000);
 }
